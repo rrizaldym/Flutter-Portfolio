@@ -13,17 +13,17 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => Splash());
-      case '/home':
+      case '/details':
         return MaterialPageRoute(builder: (_) => Details());
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
-      case '/home':
+      case '/login':
         return MaterialPageRoute(builder: (_) => Login());
-      case '/home':
+      case '/profile':
         return MaterialPageRoute(builder: (_) => Profile());
-      case '/home':
+      case '/register':
         return MaterialPageRoute(builder: (_) => Register());
-      case '/home':
+      case '/welcome':
         return MaterialPageRoute(builder: (_) => Welcome());
       default:
         return _errorRoute();
