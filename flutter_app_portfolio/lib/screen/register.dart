@@ -20,6 +20,9 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         leading: BackButton(
           color: Colors.black,
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/welcome');
+          },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -80,6 +83,7 @@ class _RegisterState extends State<Register> {
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
+                          hintText: "at least 6 character",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: "Password"),

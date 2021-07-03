@@ -1,48 +1,49 @@
-import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class MangaNews extends StatefulWidget {
-  const MangaNews({Key? key}) : super(key: key);
+class GetTopListManga extends StatefulWidget {
+  const GetTopListManga({ Key? key }) : super(key: key);
 
   @override
-  _MangaNewsState createState() => _MangaNewsState();
+  _GetTopListMangaState createState() => _GetTopListMangaState();
 }
 
-class _MangaNewsState extends State<MangaNews> {
-  final String url = "https://api.jikan.moe/v3/manga/1/news";
+class _GetTopListMangaState extends State<GetTopListManga> {
+
+  final String? url2 = "https://api.jikan.moe/v3/top/manga/1/";
   List? data;
 
-  @override
   void initState() {
     super.initState();
     this.getData();
   }
 
   Future<String?> getData() async {
-    var respone =
-        await http.get(Uri.parse(url), headers: {"Accept": "application/json"});
+    var response = await http
+        .get(Uri.parse(url2!), headers: {"Accept": "application/json"});
+    print(response.body);
     setState(() {
-      // Timer(Duration(seconds: 5), () {
+      // Timer(Duration(seconds: 3), () {
       // });
-      var convertData = jsonDecode(respone.body);
-      data = convertData['articles'];
+      var convertData = jsonDecode(response.body);
+      data = convertData['top'];
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 300,
+      // color: Colors.red,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: data == null ? 0 : data!.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
                 margin: EdgeInsets.all(10),
-                width: 200,
+                width: 175,
                 // color: Colors.blue,
                 child: ListView(
                   // mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +59,7 @@ class _MangaNewsState extends State<MangaNews> {
                     Padding(
                       padding: const EdgeInsets.all(3.0),
                       child: Text.rich(TextSpan(
-                          text: data![index]["intro"], style: TextStyle())),
+                          text: data![index]["title"], style: TextStyle())),
                     ),
                   ],
                 ));

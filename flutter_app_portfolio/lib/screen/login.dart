@@ -21,6 +21,9 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         leading: BackButton(
           color: Colors.black,
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/welcome');
+          },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -69,6 +72,7 @@ class _LoginState extends State<Login> {
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
+                          hintText: "at least 6 character",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: "Password"),

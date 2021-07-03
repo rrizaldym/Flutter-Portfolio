@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CounterBloc extends Bloc<String, String>{
-  CounterBloc():super("oke");
+class CounterBloc extends Bloc<int, int>{
+  CounterBloc():super(0);
 
-  String? _counter;
-  String get counter => _counter!;
+  int? _counter;
+  int get counter => _counter!;
 
   @override
-  Stream<String> mapEventToState(event)async*{
-
+  Stream<int> mapEventToState(event)async*{
+    // if(event == )
   }
 
 }

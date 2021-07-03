@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_portfolio/screen/detail.dart';
+import 'package:flutter_app_portfolio/screen/details.dart';
 import 'package:flutter_app_portfolio/screen/home.dart';
 import 'package:flutter_app_portfolio/screen/login.dart';
 import 'package:flutter_app_portfolio/screen/profile.dart';
