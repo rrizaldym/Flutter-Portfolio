@@ -6,6 +6,7 @@ import 'package:flutter_app_portfolio/screen/login.dart';
 import 'package:flutter_app_portfolio/screen/profile.dart';
 import 'package:flutter_app_portfolio/screen/register.dart';
 import 'package:flutter_app_portfolio/screen/splash.dart';
+import 'package:flutter_app_portfolio/screen/topList.dart';
 import 'package:flutter_app_portfolio/screen/welcome.dart';
 
 class RouteGenerator {
@@ -23,6 +24,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Profile());
       case '/register':
         return MaterialPageRoute(builder: (_) => Register());
+      case '/topList':
+        return MaterialPageRoute(builder: (_) => TopList());
       case '/welcome':
         return MaterialPageRoute(builder: (_) => Welcome());
       default:

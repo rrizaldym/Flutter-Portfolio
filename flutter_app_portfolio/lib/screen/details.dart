@@ -33,7 +33,12 @@ class _DetailsState extends State<Details> {
     return Center(
         child: Scaffold(
       appBar: AppBar(
-        title: Text(data!["title"]),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 40,
+        leading: BackButton(
+          color: Colors.black,
+        ),
       ),
       body: ListView(children: [
         Column(
@@ -120,11 +125,80 @@ class _DetailsState extends State<Details> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text.rich(TextSpan(
+                      text: 'Theme Songs', style: TextStyle(fontSize: 20))),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 200,
+                    // color: Colors.blue,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            width: 150,
+                            // color: Colors.blue,
+                            child: ListView(children: [
+                              Text.rich(TextSpan(
+                                  text: "Opening Themes :\n",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                  children: [
+                                    for (var text in data!['opening_themes'])
+                                      TextSpan(
+                                          text: "${text}\n",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          )),
+                                  ]))
+                            ]),
+                          ),
+                          Container(
+                            width: 150,
+                            // color: Colors.red,
+                            child: ListView(children: [
+                              Text.rich(TextSpan(
+                                  text: "Ending Themes :\n",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                  children: [
+                                    for (var text in data!['ending_themes'])
+                                      TextSpan(
+                                          text: "${text}\n",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          )),
+                                  ]))
+                            ]),
+                          ),
+                        ]),
+                  )
+                ],
+              ),
+            ),
             Container(
-              margin: EdgeInsets.all(5),
-              color: Colors.green,
-              height: 100,
-              // child: video,
+              margin: EdgeInsets.all(10),
+              // color: Colors.red,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Synopsis',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(data!['synopsis']),
+                ],
+              ),
             )
           ],
         ),
