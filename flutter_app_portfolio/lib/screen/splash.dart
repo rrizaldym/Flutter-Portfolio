@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
 
   startSplash() async {
     return Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/welcome');
+      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 

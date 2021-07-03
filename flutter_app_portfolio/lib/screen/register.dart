@@ -97,7 +97,7 @@ class _RegisterState extends State<Register> {
               email: _email.text, password: _password.text);
           // print(_email.text);
           // print(_password.text);
-          // Navigator.pushNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/home');
         },
       ),
     );

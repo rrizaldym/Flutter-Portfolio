@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_portfolio/widget/animeNews.dart';
 import 'package:flutter_app_portfolio/screen/detail.dart';
 import 'package:flutter_app_portfolio/screen/profile.dart';
+import 'package:flutter_app_portfolio/widget/mangaNews.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -50,32 +52,48 @@ class _HomeState extends State<Home> {
 }
 
 TextEditingController searchController = TextEditingController();
-Widget home() => Container(
-      child: Column(
+Widget home() => ListView(children: [
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text.rich(TextSpan(
-              text: "Hai, Rizky }",
+              text: "Hai, Rizky",
               style: TextStyle(
                 fontSize: 16,
               ),
             )),
           ),
+          // SizedBox(
+          //   height: 30,
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(horizontal: 15),
+          //     child: TextField(
+          //       controller: searchController,
+          //       decoration: InputDecoration(
+          //         border: OutlineInputBorder(),
+          //         labelText: "Mau cari apa?",
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SizedBox(
-            height: 30,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-                controller: searchController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Mau cari apa?",
-                ),
-              ),
-            ),
-          )
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SizedBox(height: 20, child: Text("Anime News Today")),
+          ),
+          GetAPI(),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SizedBox(height: 20, child: Text("Manga News Today")),
+          ),
+          MangaNews(),
         ],
       ),
-    );
+    ]);
