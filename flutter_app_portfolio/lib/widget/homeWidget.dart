@@ -5,7 +5,7 @@ import 'AnimeNews.dart';
 import 'mangaNews.dart';
 
 class HomeWidget extends StatefulWidget {
-  const HomeWidget({ Key? key }) : super(key: key);
+  const HomeWidget({Key? key}) : super(key: key);
 
   @override
   _HomeWidgetState createState() => _HomeWidgetState();
@@ -55,7 +55,11 @@ class _HomeWidgetState extends State<HomeWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SizedBox(height: 20, child: Text("Anime News Today")),
           ),
-          GetAPI(),
+          GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/newsAnime');
+              },
+              child: GetAPI()),
           SizedBox(
             height: 10,
           ),
@@ -63,7 +67,11 @@ class _HomeWidgetState extends State<HomeWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SizedBox(height: 20, child: Text("Manga News Today")),
           ),
-          MangaNews(),
+          GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/newsManga');
+              },
+              child: MangaNews()),
         ],
       ),
     ]);

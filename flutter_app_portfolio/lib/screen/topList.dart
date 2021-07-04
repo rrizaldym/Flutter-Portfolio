@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_portfolio/widget/getTopListAnime.dart';
+import 'package:flutter_app_portfolio/widget/getTopAnimeList.dart';
 import 'package:flutter_app_portfolio/widget/getTopListManga.dart';
 
 class TopList extends StatefulWidget {
@@ -22,12 +22,19 @@ class _TopListState extends State<TopList> {
           child: SizedBox(height: 20, child: Text("Top Anime")),
         ),
         GetTopAnimeList(),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: SizedBox(height: 20, child: Text("Top Manga")),
         ),
-        GetTopListManga(),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/detailsTopManga');
+          },
+          child: GetTopListManga(),
+        ),
       ],
     ));
   }

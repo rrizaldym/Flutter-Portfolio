@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_portfolio/screen/details.dart';
 import 'package:flutter_app_portfolio/screen/home.dart';
 import 'package:flutter_app_portfolio/screen/login.dart';
 import 'package:flutter_app_portfolio/screen/profile.dart';
@@ -14,8 +13,10 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => Splash());
-      case '/details':
-        return MaterialPageRoute(builder: (_) => Details());
+      // case '/detailsTopAnime':
+      //   return MaterialPageRoute(builder: (_) => Details(malId: 38524));
+      // case '/detailsTopManga':
+      //   return MaterialPageRoute(builder: (_) => Details());
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
       case '/login':
