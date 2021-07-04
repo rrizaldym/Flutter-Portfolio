@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_portfolio/method/counters.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -13,9 +15,10 @@ class _RegisterState extends State<Register> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<CounterBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -99,8 +102,8 @@ class _RegisterState extends State<Register> {
         onPressed: () async {
           await _firebaseAuth.createUserWithEmailAndPassword(
               email: _email.text, password: _password.text);
-          // print(_email.text);
-          // print(_password.text);
+          bloc.add(_name.text);
+          print(_name.text);
           Navigator.pushReplacementNamed(context, '/home');
         },
       ),

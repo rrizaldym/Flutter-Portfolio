@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_portfolio/method/counters.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'AnimeNews.dart';
 import 'mangaNews.dart';
@@ -21,19 +23,21 @@ class _HomeWidgetState extends State<HomeWidget> {
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text.rich(TextSpan(
-                text: "Hai, ",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-                children: [
-                  TextSpan(
-                    text: "\n${auth.currentUser!.email}",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+            child: BlocBuilder<CounterBloc, String>(
+              builder: (context, state) => Text.rich(TextSpan(
+                  text: "Hai, ",
+                  style: TextStyle(
+                    fontSize: 16,
                   ),
-                ])),
+                  children: [
+                    TextSpan(
+                      text: "\n${state}",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ])),
+            ),
           ),
           // SizedBox(
           //   height: 30,

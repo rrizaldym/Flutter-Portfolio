@@ -23,10 +23,10 @@ class _HomeState extends State<Home> {
       child: Scaffold(
           appBar: AppBar(
             toolbarHeight: 120,
-            // leading: Image.asset(
-            //   "assets/icons/icon(120x120).png",
-            //   scale: 5,
-            // ),
+            leading: Image.asset(
+              "assets/icons/icon(120x120).png",
+              scale: 5,
+            ),
             actions: [
               IconButton(
                   onPressed: () {

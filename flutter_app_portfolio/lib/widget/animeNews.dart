@@ -24,17 +24,10 @@ class _GetAPIState extends State<GetAPI> {
   Future<String?> getData() async {
     var response = await http
         .get(Uri.parse(url!), headers: {"Accept": "application/json"});
-    // .get(Uri.parse(url2!), headers: {"Accept": "application/json"});
-    print(response.body);
     setState(() {
-      // Timer(Duration(seconds: 3), () {
-      // });
       var convertData = jsonDecode(response.body);
       data = convertData['articles'];
-      // data = convertData['top'];
     });
-    // print(data);
-    // return "data";
   }
 
   @override
